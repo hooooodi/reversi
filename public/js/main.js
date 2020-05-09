@@ -18,5 +18,4 @@ if('undefined' == typeof username || !username){
     username = 'Anonymous_'+Math.random();
 }
 
-}
 $('#messages').append('<h4>'+username+'</h4>');
