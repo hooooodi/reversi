@@ -238,7 +238,7 @@ io.sockets.on('connection', function (socket) {
       log('Message sent to room ' + room + ' by ' + username);
     });
 
-    /* invite commond */
+    /* invite command */
     /* payload:
         {
             'requested_user': the socket id of the person to be Invited
@@ -331,7 +331,7 @@ io.sockets.on('connection', function (socket) {
           log('invite successful');
         });
 
-        /* uninvite commond */
+        /* uninvite command */
         /* payload:
             {
                 'requested_user': the socket id of the person to be uninvited
@@ -445,7 +445,6 @@ io.sockets.on('connection', function (socket) {
                   log('game_start with ' +JSON.stringify(payload));
 
                   /* Check to make sure that a payload was sent */
-
                   if(('undefined' === typeof payload) || !payload){
                       var error_message = 'game_start had no payload, command aborted';
                       log(error_message);
@@ -501,7 +500,7 @@ io.sockets.on('connection', function (socket) {
                                         };
                   socket.emit('game_start_response', success_data);
 
-                  /* Tell other palyer to play*/
+                  /* Tell other player to play */
                   var success_data = {
                                       result: 'success',
                                       socket_id: socket.id,
