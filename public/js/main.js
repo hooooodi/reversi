@@ -339,7 +339,7 @@ socket.on('game_update',function(payload){
 
     var row,column;
     for(row = 0; row < 8; row++){
-      for(column = 0; column < 8; column++){
+      for (column = 0; column < 8; column++){
         if(board[row][column] == 'b'){
               blacksum++;
         }
@@ -380,6 +380,7 @@ socket.on('game_update',function(payload){
                 $('#'+row+'_'+column).html('<img src="assets/images/error.gif" alt="error"/>');
 
         }
+
         /* Set up interactivity */
         $('#'+row+'_'+column).off('click');
         if(board[row][column] == ' '){
@@ -399,7 +400,7 @@ socket.on('game_update',function(payload){
             $('#'+row+'_'+column).removeClass('hovered_over');
           }
 
-          })
+          }
         }
       }
     }
