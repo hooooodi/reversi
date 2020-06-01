@@ -151,8 +151,6 @@ socket.on('invited',function(payload){
 
 
 
-
-
 /* Send an uninvite message to the server */
 function uninvite(who){
   var payload = {};
@@ -181,9 +179,6 @@ socket.on('uninvited',function(payload){
     var newNode = makeInviteButton(payload.socket_id);
     $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
 });
-
-
-
 
 
 
@@ -235,7 +230,6 @@ socket.on('send_message_response',function(payload){
     $('#messages').prepend(newNode);
     newNode.slideDown(1000);
 });
-
 
 
 
@@ -433,7 +427,6 @@ socket.on('play_token_response',function(payload){
       }
 
       /* Jump to a new page */
-
       $('#game_over').html('<h1>Game Over</h1><h2>'+payload.who_won+' won!</h2>');
       $('#game_over').append('<a href="lobby.html?username='+username+'" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Return to the lobby</a>');
     });
