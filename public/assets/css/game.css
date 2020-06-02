@@ -18,7 +18,7 @@ table#game_board td{
 }
 
 #message p{
-    margin: 0px;
+    margin:0px;
 }
 
 td.hovered_over:hover {

@@ -215,7 +215,7 @@ function send_message(){
     payload.message = $('#send_message_holder').val();
     console.log('*** Client Log Message: \'send_message\' payload: '+JSON.stringify(payload));
     socket.emit('send_message', payload);
-    $('#send_message_holder').val(' ');
+    $('#send_message_holder').val('');
 }
 
 
@@ -267,7 +267,7 @@ function makeEngagedButton(){
 }
 
 
-$(function(){
+$(function() {
     var payload = {};
     payload.room = chat_room;
     payload.username = username;
@@ -275,7 +275,6 @@ $(function(){
     socket.emit('join_room',payload);
 
     $('#quit').append('<a href="lobby.html?username='+username+'" class="btn btn-danger btn-default active" role="button" aria-pressed="true">Quit</a>');
-
 
 
 });
@@ -295,7 +294,7 @@ var my_color =' ';
 
 socket.on('game_update',function(payload){
 
-    console.log('*** Client Log Message: \'game_update\'\n\tpayload: '+JSON.stringify(payload));
+    console.log('*** Client Log Message: \'game_update\'\n\t payload: '+JSON.stringify(payload));
     /* Check for a good board update */
     if(payload.result == 'fail'){
       console.log(payload.message);
@@ -309,7 +308,6 @@ socket.on('game_update',function(payload){
       console.log('Internal error: received a malformed board update from the server');
       return;
     }
-
     /* Update my color */
     if(socket.id == payload.game.player_white.socket){
         my_color = 'white';
@@ -346,28 +344,28 @@ socket.on('game_update',function(payload){
               if(old_board[row][column] == '?' && board[row][column] == ' '){
                   $('#'+row+'_'+column).html('<img src="assets/images/empty.gif" alt="empty square"/>');
                 }
-                else if(old_board[row][colume] == '?' && board[row][column] == 'w'){
+                else if(old_board[row][column] == '?' && board[row][column] == 'w'){
                   $('#'+row+'_'+column).html('<img src="assets/images/empty to white.gif" alt="white square"/>');
                 }
-                else if(old_board[row][colume] == '?' && board[row][column] == 'b'){
+                else if(old_board[row][column] == '?' && board[row][column] == 'b'){
                   $('#'+row+'_'+column).html('<img src="assets/images/empty to black.gif" alt="black square"/>');
                 }
-                else if(old_board[row][colume] == ' ' && board[row][column] == 'w'){
+                else if(old_board[row][column] == ' ' && board[row][column] == 'w'){
                   $('#'+row+'_'+column).html('<img src="assets/images/empty to white.gif" alt="white square"/>');
                 }
-                else if(old_board[row][colume] == ' ' && board[row][column] == 'b'){
+                else if(old_board[row][column] == ' ' && board[row][column] == 'b'){
                   $('#'+row+'_'+column).html('<img src="assets/images/empty to black.gif" alt="black square"/>');
                 }
-                else if(old_board[row][colume] == 'w' && board[row][column] == ''){
+                else if(old_board[row][column] == 'w' && board[row][column] == ''){
                   $('#'+row+'_'+column).html('<img src="assets/images/white to empty.gif" alt="empty square"/>');
                 }
-                else if(old_board[row][colume] == 'b' && board[row][column] == ''){
+                else if(old_board[row][column] == 'b' && board[row][column] == ''){
                   $('#'+row+'_'+column).html('<img src="assets/images/black to empty.gif" alt="empty square"/>');
                 }
-                else if(old_board[row][colume] == 'w' && board[row][column] == 'b'){
+                else if(old_board[row][column] == 'w' && board[row][column] == 'b'){
                   $('#'+row+'_'+column).html('<img src="assets/images/white to black.gif" alt="black square"/>');
                 }
-                else if(old_board[row][colume] == 'b' && board[row][column] == 'w'){
+                else if(old_board[row][column] == 'b' && board[row][column] == 'w'){
                   $('#'+row+'_'+column).html('<img src="assets/images/black to white.gif" alt="white square"/>');
               }
               else{
@@ -389,15 +387,12 @@ socket.on('game_update',function(payload){
                   socket.emit('play_token',payload);
               };
             }(row,column));
-          }
+        }
           else{
             $('#'+row+'_'+column).removeClass('hovered_over');
           }
-
-          }
         }
       }
-    }
   }
   $('#blacksum').html(blacksum);
   $('#whitesum').html(whitesum);
@@ -408,7 +403,7 @@ socket.on('game_update',function(payload){
 
 socket.on('play_token_response',function(payload){
 
-    console.log('*** Client Log Message: \'play_token_response\'\n\tpayload: '+JSON.stringify(payload));
+    console.log('*** Client Log Message: \'play_token_response\'\n\t payload: '+JSON.stringify(payload));
     /* Check for a good play_token_response update */
     if(payload.result == 'fail'){
       console.log(payload.message);
