@@ -21,7 +21,7 @@
   "homepage": "https://github.com/hooooodi/reversi#readme",
   "dependencies": {
     "node-static": "^0.7.11",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {}
 }
